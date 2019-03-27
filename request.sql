@@ -13,3 +13,7 @@ INSERT INTO SUPPLYS VALUES (2, 1 , 3, '1200000', '5', '21122018');
 INSERT INTO SUPPLYS VALUES (3, 3 , 2, '1000', '120', '11112018');
 -- //
 INSERT INTO BUYER VALUES (1, 'Королев Сергей Павлович' , 'Россия', 'Ул. Академика королева 1, 11', '71111111111');
+INSERT INTO BUYER VALUES (2, 'Грудинин Сергей Витальевич', 'Швейцария', '1 Апрельская 25, 15', '7149870124');
+-- 
+INSERT INTO ORDERS VALUES(1, 1, 2, 20, 24-03-2008);
+INSERT INTO ORDERS VALUES(2, 1, 2, 20, 24-03-2008);
