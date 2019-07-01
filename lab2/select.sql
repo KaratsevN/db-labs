@@ -1,10 +1,12 @@
 --#1
-SELECT DISTINCT ORDERS.id_buyer, ORDERS.id_supply from ORDERS where(
-    id_supply = 1
+SELECT DISTINCT ORDERS.id_buyer as "Заказчики" from ORDERS where(
+    ORDERS.id_supply = 1
 )
 
 --#2
---SELECT 
+SELECT ORDERS.amount_order*SUPPLYS.PRICE AS "Оборот" from ORDERS, SUPPLYS where(
+  SUPPLYS.ID_SUPPLY = ORDERS.ID_SUPPLY
+);
 
 --#3
 SELECT PRODUCTS.name, ORDERS.amount, SUPPLYS.amount from ORDERS, SUPPLYS where(

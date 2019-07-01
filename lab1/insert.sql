@@ -8,9 +8,9 @@ INSERT INTO PRODUCTS VALUES (4, 'сгущенка', '3x4', '1');
 
 
 -- id, fullname, phone, adress, country
-INSERT INTO PRODUCERS VALUES (2, 'Погарская Анастасия ', '79099999999', 'ул. Малунцева 12', 'Польша');
-INSERT INTO PRODUCERS VALUES (3, 'Кий Эдуард', '77777777777', 'ул. Магистральная 39Б', 'Украина');
-INSERT INTO PRODUCERS VALUES (1, 'Мерц Анастасия сергеевна', '79013441222', 'ул. Магистральная 34Б', 'Россия');
+INSERT INTO PRODUCERS VALUES (2, 'Погарская Анастасия ', '79099999999', 'Малунцева 12', 'Польша');
+INSERT INTO PRODUCERS VALUES (3, 'Кий Эдуард', '77777777777', 'Магистральная 39Б', 'Украина');
+INSERT INTO PRODUCERS VALUES (1, 'Мерц Анастасия сергеевна', '79013441222', 'Магистральная 34Б', 'Россия');
 
 
 --id, name, adress
@@ -21,9 +21,9 @@ INSERT INTO FACTORY VALUES(4, 'Склад 4', 'Дом Васи Уткина 154'
 
 
 -- id, idproducer, idproduct, idfactory, amount, price, date
-INSERT INTO SUPPLYS VALUES (1, 1, 1, 1, '200000', '50', '20030218');
-INSERT INTO SUPPLYS VALUES (2, 2, 1, 3, '1200000', '5', '20060119');
-INSERT INTO SUPPLYS VALUES (3, 3, 4, 2, '1000', '120', '20020618');
+INSERT INTO SUPPLYS VALUES (1, 1, 1, 1, '200000', '50', TO_DATE('20-01-06', 'DD-MM-YY'));
+INSERT INTO SUPPLYS VALUES (2, 2, 1, 3, '1200000', '5', TO_DATE('20-01-06', 'DD-MM-YY'));
+INSERT INTO SUPPLYS VALUES (3, 3, 4, 2, '1000', '120', TO_DATE('20-01-06', 'DD-MM-YY'));
 
 
 --id, fullname, country, adress, phone
@@ -31,8 +31,9 @@ INSERT INTO BUYER VALUES (1, 'Королев Сергей Павлович' , '�
 INSERT INTO BUYER VALUES (2, 'Лицеев Валерий Альбертович' , 'Россия', 'Ул. Академика королева 15, 111', '71111111111');
 
 -- id, idbuyer, idsupply, amount, date
-INSERT INTO ORDERS VALUES (1, 1, 1, 100, '20080101');
-INSERT INTO ORDERS VALUES (2, 1, 2, 50, '2080101');
-INSERT INTO ORDERS VALUES (3, 2, 1, 100, '20130101');
-INSERT INTO ORDERS VALUES (4, 2, 2, 20, '20130102');
-INSERT INTO ORDERS VALUES (5, 2, 3, 20, '20130202');
+INSERT INTO ORDERS VALUES (1, 1, 1, 100, TO_DATE('20-01-07', 'DD-MM-YY'));
+INSERT INTO ORDERS VALUES (1, 1, 1, 100, TO_DATE('21-01-07', 'DD-MM-YY'));
+INSERT INTO ORDERS VALUES (2, 1, 2, 50, TO_DATE('21-01-07', 'DD-MM-YY'));
+INSERT INTO ORDERS VALUES (3, 2, 1, 100, TO_DATE('20-01-07', 'DD-MM-YY'));
+INSERT INTO ORDERS VALUES (4, 2, 2, 20, TO_DATE('20-01-07', 'DD-MM-YY'));
+INSERT INTO ORDERS VALUES (5, 2, 3, 20, TO_DATE('20-01-07', 'DD-MM-YY'));

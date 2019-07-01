@@ -24,7 +24,7 @@ create table FACTORY(
 create table SUPPLYS(
       id_supply number(5) primary key
     , id_producer number(3) REFERENCES PRODUCERS(id_producer)
-    , id_product varchar2(15) REFERENCES PRODUCTS(id_product)
+    , id_product number(5) REFERENCES PRODUCTS(id_product)
     , id_factory number(2)  REFERENCES FACTORY(id_factory)
     , amount_product number(6) not null
     , price number(5)
