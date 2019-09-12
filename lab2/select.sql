@@ -1,25 +1,30 @@
 --#1
-SELECT DISTINCT ORDERS.id_buyer as "Заказчики" from ORDERS where(
-    ORDERS.id_supply = 1
-)
+SELECT DISTINCT o.id_buyer, b.full_name_buyer as "Заказчики" from ORDERS o JOIN BUYER b on(o.id_buyer=b.id_buyer) where (
+  o.id_supply = 1
+);
 
 --#2
-SELECT ORDERS.amount_order*SUPPLYS.PRICE AS "Оборот" from ORDERS, SUPPLYS where(
+SELECT ORDERS.amount_order*SUPPLYS.PRICE AS "Сумма по 3 поялм" from ORDERS, SUPPLYS where(
+  SUPPLYS.ID_SUPPLY = ORDERS.ID_SUPPLY
+);
+
+--###
+SELECT SUM((ORDERS.amount_order*SUPPLYS.PRICE) + (SUPPLYS.amount_product*SUPPLYS.price - ORDERS.amount_order*SUPPLYS.price) + (SUPPLYS.amount_product*SUPPLYS.price)) AS "Сумма по 3 полям" from ORDERS, SUPPLYS where(
   SUPPLYS.ID_SUPPLY = ORDERS.ID_SUPPLY
 );
 
 --#3
-SELECT PRODUCTS.name, ORDERS.amount, SUPPLYS.amount from ORDERS, SUPPLYS where(
-    SUPPLYS.amount - ORDERS.amount >= 10000
+SELECT distinct p.NAME_PRODUCT, SUPPLYS.amount_product from ORDERS, SUPPLYS join PRODUCTS p on(p.id_product = SUPPLYS.id_product) where(
+    SUPPLYS.amount_product - ORDERS.amount_order <= 10000
 )
 
 --#4
-SELECT ORDERS.id_buyer, SUPPLYS.amount AS "остаток на начало месяца", BUYER.full_name_buyer from ORDERS, SUPPLYS  where(
-    SUPPLYS.amount BETWEEN 56 AND 789
+SELECT distinct b.full_name_buyer, s.id_product, s.amount_product AS "остаток месяца" from ORDERS, SUPPLYS s, BUYER b where(
+    s.amount_product BETWEEN 56 AND 789
 )
 
 --#5
-
+SELECT b.full_name_buyer 
 
 --#6
 UPDATE PRODUCTS SET id_factory = 4 WHERE id_factory = 1
