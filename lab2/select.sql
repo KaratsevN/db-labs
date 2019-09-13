@@ -24,7 +24,9 @@ SELECT distinct b.full_name_buyer, s.id_product, s.amount_product AS "остат
 )
 
 --#5
-SELECT b.full_name_buyer 
+SELECT  b.full_name_buyer o.id_product FROM ORDERS o, SUPPLYS s JOIN BUYER b on(b.id_buyer = o.id_buyer) WHERE(
+  min(o.amount_order*s.price)
+)
 
 --#6
 UPDATE PRODUCTS SET id_factory = 4 WHERE id_factory = 1
